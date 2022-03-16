@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container p-5">
+        <div class="row" style="width:100%">
+            <h3 class="h3 mb-2">
+                ihorizon
+            </h3>
+
+            <div class="row" style="margin-right:0px; margin-left:auto">
+                <a class="btn btn-primary " href="{% url 'list_ticket' %}" style="width:180px"> My requests</a>
+                <button class="btn btn-white border" style="width:180px; margin-left:15px" >
+                    <a href="{% url 'create_ticket' %}">
+                        <i class="fa fa-plus"></i>&nbsp;&nbsp; New Request</a> </button>
+
+            </div>
+
+        </div>
+    <div class="row justify-content-center" style="padding-right:25%; margin-top:7%">
+
+        {% for item in tickets %}
+        <div class="col-md-12 ticket-list" >
+            <div class="row">
+                <h5>{{item.summary}}</h5>
+                {% if item.is_high_priority %}
+                <span class="high-priority-span">
+                    High priority
+                </span>
+                {% endif %}
+                {% if item.is_completed %}
+                <span class="progress-span">
+                    Completed
+                </span>
+                {% endif %}
+                {% if not item.is_completed %}
+                <span class="progress-span">
+                    In progress
+                </span>
+                {% endif %}
+            </div>
+            <div class="row" style="height:70px">
+
+            <p style="font-weight:100;" class="text">{{item.description}}</p>
+
+            </div>
+            <div class="row">
+                <p><i class="fa fa-calendar"></i>&nbsp; Created at {{item.created_at}}</p>
+                <p style="margin-left:10%"><i class="fa fa-user"></i>&nbsp; Assigned to {{item.assigned_to}} (Agent)</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

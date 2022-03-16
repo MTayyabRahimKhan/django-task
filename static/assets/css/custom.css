@@ -1,0 +1,134 @@
+/* 
+/* 
+/*  custom.css
+/*
+/*  If not using Gulp and Sass, add your custom CSS below then include it
+/*  in your page by adding a reference to assets/css/custom.css in the head of each page.
+/*
+*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 53px;
+  height: 28px;
+}
+
+.gray-border{
+border: 2px solid #A2A2A2;
+ border-radius: 5px;
+ background-color: #F7F9FA;
+ padding: 6%;
+ margin-top:15px
+}
+.text {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2;
+   -webkit-box-orient: vertical;
+}
+
+.ticket-list{
+border: 2px solid #A2A2A2;
+ border-radius: 5px;
+ background-color: #F7F9FA;
+ padding-left:25px;
+ padding-top:10px;
+ margin-top:15px;
+ padding-bottom: 15px
+}
+
+.high-priority-span{
+ color: #fff;
+ font-size: 10px;
+ border-radius: 15px;
+ background-color: #D3455B;
+ padding-top: 2px;
+ height:20px;
+ margin-left:20px;
+ padding-left:7px;
+ padding-right:7px;
+ margin-top:4px
+}
+.progress-span{
+ color: #2C88D9;
+ border: 1px solid #2C88D9;
+ font-size: 10px;
+ border-radius: 15px;
+ background-color: #fff;
+ padding-top: 2px;
+ height:20px;
+ margin-right:20px;
+ margin-left:auto;
+ padding-left:7px;
+ padding-right:7px;
+ margin-top:4px
+}
+
+.progress-filled-span{
+ color: #ffffff;
+ font-size: 10px;
+ border-radius: 15px;
+ background-color: #2C88D9;
+ padding-top: 2px;
+ height:20px;
+ margin-right:20px;
+ margin-left:auto;
+ padding-left:7px;
+ padding-right:7px;
+ margin-top:4px
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 0px;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 26px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

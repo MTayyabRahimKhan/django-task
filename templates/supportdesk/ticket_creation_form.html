@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container p-5">
+        <div class="row" style="width:100%">
+            <h3 class="h3 mb-2">
+                ihorizon
+            </h3>
+
+            <div class="row" style="margin-right:0px; margin-left:auto">
+                <a class="btn btn-primary " href="{% url 'list_ticket' %}" style="width:180px"> My requests</a>
+                <button class="btn btn-white border" style="width:180px; margin-left:15px" >
+                    <a href="{% url 'create_ticket' %}">
+                        <i class="fa fa-plus"></i>&nbsp;&nbsp; New Request</a> </button>
+            </div>
+
+        </div>
+    <div class="row justify-content-center" style="margin-top:100px">
+
+        <div class="col-md-6 gray-border" >
+
+
+            <form method="post" action="">{% csrf_token %}
+                                <div class="form-row col-md-12">
+                                    <h4>Request information</h4>
+                                    <div class="col-md-12">
+                                        <div class="form-group col-md-12" style="padding: 0px;">
+                                            <label style="color: #000000">{{form.summary.label}} <span aria-hidden="true"
+                                                                                   class="required">*</span></label>
+                                            {{ form.summary }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group col-md-12" style="padding: 0px;">
+                                            <label style="color: #000000">{{form.description.label}} </label>
+                                            {{ form.description }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12" style="padding: 0px;">
+                                           <label class="switch" >
+                                      {{form.is_high_priority}}
+                                      <span class="slider round"></span>
+                                    </label>
+                                   <label style="color: #000000;">{{form.is_high_priority.label}}</label>
+                                    </div>
+
+                                <button type="submit" name="submit_" class="btn btn-block btn-primary">Create support request</button>
+                                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
